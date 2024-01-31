@@ -1,0 +1,41 @@
+api:
+  dashboard: true
+
+log:
+  level: DEBUG
+
+entryPoints:
+  http:
+    address: :80
+  https:
+    address: :443
+    http:
+      tls:
+        certResolver: cloudflare
+        domains:
+          - main: "*.pycrs.cz"
+          - main: "*.remeslovkostce.cz"
+
+serversTransport:
+  # Allow self signed certs
+  insecureSkipVerify: true
+
+certificatesResolvers:
+  cloudflare:
+    acme:
+      # Don't need renewal notifications
+      email:
+      storage: /etc/traefik/acme/cloudflare-acme.json
+      dnsChallenge:
+        provider: cloudflare
+        resolvers:
+          - "1.1.1.1:53"
+          - "1.0.0.1:53"
+
+providers:
+  docker:
+    endpoint: "unix:///var/run/docker.sock"
+    exposedByDefault: false
+  file:
+    directory: /etc/traefik/conf
+    watch: true

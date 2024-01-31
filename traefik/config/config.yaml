@@ -1,0 +1,393 @@
+http:
+  routers:
+# Docker
+    remeslovkostce:
+      entryPoints: [https]
+      rule: Host(`remeslovkostce.cz`) || Host(`api.remeslovkostce.cz`) || Host(`www.remeslovkostce.cz`)
+      middlewares:
+        - https-redirect
+      service: remeslovkostce
+    homepage:
+      entryPoints: [https]
+      rule: Host(`hub.pycrs.cz`)
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: homepage
+    grafana:
+      entryPoints: [https]
+      rule: Host(`grafana.pycrs.cz`)
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: grafana
+    guacamole:
+      entryPoints: [https]
+      rule: Host(`guacamole.pycrs.cz`)
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: guacamole
+    influxdb:
+      entryPoints: [https]
+      rule: Host(`influx.pycrs.cz`)
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: influxdb2
+    node-red:
+      entryPoints: [https]
+      rule: Host(`node-red.pycrs.cz`)
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: node-red
+    portainer:
+      entryPoints: [https]
+      rule: Host(`portainer.pycrs.cz`)
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: portainer
+    speedtest-tracker:
+      entryPoints: [https]
+      rule: Host(`speedtest.pycrs.cz`)
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: speedtest-tracker
+    uptime-kuma:
+      entryPoints: [https]
+      rule: Host(`uptime-kuma.pycrs.cz`)
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: uptime-kuma
+    stinbank:
+      entryPoints: [https]
+      rule: Host(`banka.pycrs.cz`)
+      middlewares:
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: stinbank
+# TrueNAS
+    jellyfin:
+      entryPoints: ["https"]
+      rule: "Host(`jellyfin.pycrs.cz`)"
+      tls: {}
+      middlewares:
+        - default-headers
+        - https-redirect
+      service: jellyfin
+    jellyseer:
+      entryPoints: ["https"]
+      rule: "Host(`jellyseer.pycrs.cz`)"
+      tls: {}
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      service: jellyseer
+    radarr:
+      entryPoints: ["https"]
+      rule: "Host(`radarr.pycrs.cz`)"
+      tls: {}
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      service: radarr
+    sonarr:
+      entryPoints: ["https"]
+      rule: "Host(`sonarr.pycrs.cz`)"
+      tls: {}
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      service: sonarr
+    prowlarr:
+      entryPoints: ["https"]
+      rule: "Host(`prowlarr.pycrs.cz`)"
+      tls: {}
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      service: prowlarr
+    qbittorrent:
+      entryPoints: ["https"]
+      rule: "Host(`qbittorrent.pycrs.cz`)"
+      tls: {}
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      service: qbittorrent
+# Others
+    traefik-dashboard:
+      entryPoints: ["https"]
+      rule: "Host(`traefik.pycrs.cz`)"
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: api@internal
+    pve1:
+      entryPoints:
+        - "https"
+      rule: "Host(`pve1.pycrs.cz`)"
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: proxmox1
+    pbs1:
+      entryPoints:
+        - "https"
+      rule: "Host(`pbs1.pycrs.cz`)"
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: proxmox-backup-server1
+    pfsense:
+      entryPoints:
+        - "https"
+      rule: "Host(`pfsense.pycrs.cz`)"
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: pfsense
+    truenas:
+      entryPoints:
+        - "https"
+      rule: "Host(`scale.pycrs.cz`)"
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: truenas-scale
+    homeassistant:
+      entryPoints:
+        - "https"
+      rule: "Host(`hass.pycrs.cz`)"
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: home-assistant
+    pihole:
+      entryPoints:
+        - "https"
+      rule: "Host(`pihole.pycrs.cz`)"
+      middlewares:
+        - internal-only
+        - default-headers
+        - pihole-prefix
+        - https-redirect
+      tls: {}
+      service: pihole-vip
+    pihole1:
+      entryPoints:
+        - "https"
+      rule: "Host(`pihole1.pycrs.cz`)"
+      middlewares:
+        - internal-only
+        - default-headers
+        - pihole-prefix
+        - https-redirect
+      tls: {}
+      service: pihole1
+    pihole2:
+      entryPoints:
+        - "https"
+      rule: "Host(`pihole2.pycrs.cz`)"
+      middlewares:
+        - internal-only
+        - default-headers
+        - pihole-prefix
+        - https-redirect
+      tls: {}
+      service: pihole2
+    unifi:
+      entryPoints:
+        - "https"
+      rule: "Host(`unifi.pycrs.cz`)"
+      middlewares:
+        - internal-only
+        - default-headers
+        - https-redirect
+      tls: {}
+      service: unifi-controller
+
+
+
+  services:
+# Docker
+    remeslovkostce:
+      loadBalancer:
+        servers:
+          - url: "http://172.21.0.2:80"
+    grafana:
+      loadBalancer:
+        servers:
+          - url: "http://172.21.0.3:3000"
+    portainer:
+      loadBalancer:
+        servers:
+          - url: "https://172.21.0.4:9443"
+    guacamole:
+      loadBalancer:
+        servers:
+          - url: "http://172.21.0.5:8080"
+    homepage:
+      loadBalancer:
+        servers:
+          - url: "http://172.21.0.6:3001"
+    influxdb2:
+      loadBalancer:
+        servers:
+          - url: "http://172.21.0.7:8086"
+    node-red:
+      loadBalancer:
+        servers:
+          - url: "http://172.21.0.8:1880"
+    speedtest-tracker:
+      loadBalancer:
+        servers:
+          - url: "https://172.21.0.9:443"
+    uptime-kuma:
+      loadBalancer:
+        servers:
+          - url: "http://172.21.0.10:3001"
+    stinbank:
+      loadBalancer:
+        servers:
+          - url: "http://172.21.0.11"
+# TrueNAS
+    jellyfin:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.0.10:9001"
+    jellyseer:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.0.10:10241"
+    radarr:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.0.10:7878"
+    sonarr:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.0.10:8989"
+    prowlarr:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.0.10:9696"
+    qbittorrent:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.0.10:10095"
+# Others
+    traefik-dashboard:
+      loadBalancer:
+        servers:
+          - url: "https://localhost:443"
+    proxmox1:
+      loadBalancer:
+        servers:
+          - url: "https://10.0.0.254:8006"
+        passHostHeader: true
+    proxmox-backup-server1:
+      loadBalancer:
+        servers:
+          - url: "https://10.0.0.30:8007"
+        passHostHeader: true
+    pihole-vip:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.0.5"
+    pihole1:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.0.2"
+    pihole2:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.0.3"
+    pfsense:
+      loadBalancer:
+        servers:
+          - url: "https://10.0.0.1:10443"
+    truenas-scale:
+      loadBalancer:
+        servers:
+          - url: "https://10.0.0.10"
+    home-assistant:
+      loadBalancer:
+        servers:
+          - url: "http://10.0.0.20:8123"
+    unifi-controller:
+      loadBalancer:
+        servers:
+          - url: "https://10.99.0.2:8443"
+
+  middlewares:
+    https-redirect:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+    internal-only:
+      IPAllowList:
+        sourceRange:
+          - "10.0.0.0/8"
+          - "192.168.0.0/24"
+
+    pihole-prefix:
+      addPrefix:
+        prefix: "/admin"
+
+    pihole-redirect:
+      redirectRegex:
+        regex: /admin/$
+        replacement: /
+
+    default-headers:
+      headers:
+        frameDeny: true
+        browserXssFilter: true
+        contentTypeNosniff: true
+        forceSTSHeader: true
+        stsIncludeSubdomains: true
+        stsPreload: true
+        stsSeconds: 15552000
+        customFrameOptionsValue: SAMEORIGIN
+        customRequestHeaders:
+          X-Forwarded-Proto: https
