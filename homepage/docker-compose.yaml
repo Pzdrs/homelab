@@ -1,0 +1,37 @@
+version: "3.3"
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    ports:
+      - 3000:3001
+    environment:
+      - PORT=3001
+      
+      - HOMEPAGE_VAR_JELLYFIN_API_KEY=${JELLYFIN_API_KEY}
+      - HOMEPAGE_VAR_JELLYSEER_API_KEY=${JELLYSEER_API_KEY}
+      - HOMEPAGE_VAR_RADARR_API_KEY=${RADARR_API_KEY}
+      - HOMEPAGE_VAR_SONARR_API_KEY=${SONARR_API_KEY}
+      - HOMEPAGE_VAR_PROWLARR_API_KEY=${PROWLARR_API_KEY}
+      - HOMEPAGE_VAR_TRUENAS_API_KEY=${TRUENAS_API_KEY}
+      - HOMEPAGE_VAR_PORTAINER_API_KEY=${PORTAINER_API_KEY}
+
+      - HOMEPAGE_VAR_QBITTORRENT_USERNAME=${QBITTORRENT_USERNAME}
+      - HOMEPAGE_VAR_QBITTORRENT_PASSWORD=${QBITTORRENT_PASSWORD}
+
+      - HOMEPAGE_VAR_PVE1_USERNAME=${PVE1_USERNAME}
+      - HOMEPAGE_VAR_PVE1_PASSWORD=${PVE1_PASSWORD}
+
+      - HOMEPAGE_VAR_PBS1_USERNAME=${PBS1_USERNAME}
+      - HOMEPAGE_VAR_PBS1_PASSWORD=${PBS1_PASSWORD}
+      
+
+    volumes:
+      - ./config:/app/config
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - proxy_net
+
+networks:
+  proxy_net:
+    external: true
