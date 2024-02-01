@@ -1,0 +1,16 @@
+zone "pycrs.cz" {
+        type master;
+        file "/etc/bind/zones/db.pycrs.cz.zone";
+};
+
+zone "remeslovkostce.cz" {
+        type master;
+        file "/etc/bind/zones/db.remeslovkostce.cz.zone";
+};
+
+zone "0.0.10.in-addr.arpa" {
+        type master;
+        file "/etc/bind/zones/db.0.0.10.zone";
+};
+
+include "/etc/bind/zones.rfc1918";

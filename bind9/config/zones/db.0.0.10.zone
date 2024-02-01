@@ -1,0 +1,11 @@
+$TTL    86400
+@       IN      SOA     ns.pycrs.cz. root.localhost. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                          86400 )       ; Negative Cache TTL
+;
+@       IN      NS      ns.pycrs.cz.
+
+9       IN      PTR     ns.pycrs.cz.

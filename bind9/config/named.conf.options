@@ -1,0 +1,5 @@
+options {
+        allow-query-cache {
+                any;
+        };
+};
