@@ -11,21 +11,26 @@ entryPoints:
     address: :443
     http:
       tls:
-        certResolver: cloudflare
+        certResolver: letsencrypt
         domains:
-          - main: "*.pycrs.cz"
-          - main: "*.remeslovkostce.cz"
+          - main: "pycrs.cz"
+            sans:
+              - "*.pycrs.cz"
+          - main: "remeslovkostce.cz"
+            sans:
+              - "*.remeslovkostce.cz"
 
 serversTransport:
   # Allow self signed certs
   insecureSkipVerify: true
 
 certificatesResolvers:
-  cloudflare:
+  letsencrypt:
     acme:
       # Don't need renewal notifications
       email:
-      storage: /etc/traefik/acme/cloudflare-acme.json
+      storage: /etc/traefik/acme/letsencrypt.json
+      caServer: https://acme-staging-v02.api.letsencrypt.org/directory
       dnsChallenge:
         provider: cloudflare
         resolvers:
