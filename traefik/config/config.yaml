@@ -79,14 +79,6 @@ http:
         - https-redirect
       tls: {}
       service: uptime-kuma
-    stinbank:
-      entryPoints: [https]
-      rule: Host(`banka.pycrs.cz`)
-      middlewares:
-        - default-headers
-        - https-redirect
-      tls: {}
-      service: stinbank
 # TrueNAS
     jellyfin:
       entryPoints: ["https"]
@@ -252,43 +244,39 @@ http:
     remeslovkostce:
       loadBalancer:
         servers:
-          - url: "http://172.21.0.2:80"
+          - url: "http://remeslovkostce-nginx-1:80"
     grafana:
       loadBalancer:
         servers:
-          - url: "http://172.21.0.3:3000"
+          - url: "http://grafana:3000"
     portainer:
       loadBalancer:
         servers:
-          - url: "https://172.21.0.4:9443"
+          - url: "https://portainer:9443"
     guacamole:
       loadBalancer:
         servers:
-          - url: "http://172.21.0.5:8080"
+          - url: "http://guacamole:8080"
     homepage:
       loadBalancer:
         servers:
-          - url: "http://172.21.0.6:3001"
+          - url: "http://homepage:3001"
     influxdb2:
       loadBalancer:
         servers:
-          - url: "http://172.21.0.7:8086"
+          - url: "http://influxdb2:8086"
     node-red:
       loadBalancer:
         servers:
-          - url: "http://172.21.0.8:1880"
+          - url: "http://node-red:1880"
     speedtest-tracker:
       loadBalancer:
         servers:
-          - url: "https://172.21.0.9:443"
+          - url: "https://speedtest-tracker:443"
     uptime-kuma:
       loadBalancer:
         servers:
-          - url: "http://172.21.0.10:3001"
-    stinbank:
-      loadBalancer:
-        servers:
-          - url: "http://172.21.0.11"
+          - url: "http://uptime-kuma:3001"
 # TrueNAS
     jellyfin:
       loadBalancer:
