@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  mc:
+    container_name: smp
+    image: itzg/minecraft-server
+    tty: true
+    stdin_open: true
+    ports:
+      - 25565:25565
+      - 24454:24454/udp # Voicechat
+      - 8123:8123 # Dynmap
+    environment:
+      - TYPE=FABRIC
+      - EULA=TRUE
+      - MOTD=TULSMP
+      - DIFFICULTY=hard
+      - ENABLE_WHITELIST=true
+      - MEMORY=8G
+      - CF_API_KEY=${CF_API_KEY}
+      - CURSEFORGE_FILES=fabric-api,simple-voice-chat,starlight,lithium,dynmapforge # Mods
+    volumes:
+      - ./data:/data

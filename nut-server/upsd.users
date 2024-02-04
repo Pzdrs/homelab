@@ -1,0 +1,5 @@
+[admin]
+    password = mypass
+    actions = set
+    actions = fsd
+    instcmds = all
