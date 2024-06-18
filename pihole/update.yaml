@@ -1,0 +1,5 @@
+- name: Update piholes
+  hosts: pihole
+  tasks:
+    - name: update upgrade
+      ansible.builtin.shell: pihole -up
