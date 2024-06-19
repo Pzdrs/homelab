@@ -1,17 +1,15 @@
 resource "proxmox_vm_qemu" "scale01" {
     name                   = "truenas-scale"
     tags                   = "debian"
-    automatic_reboot       = false
     agent                  = 1
+
+    automatic_reboot       = false
     define_connection_info = false
     full_clone             = false
     onboot                 = true
     scsihw                 = "virtio-scsi-single"
 
-    cpu                    = "host"
-    cores                  = 6
-    sockets                = 1
-    
+    cores                  = 6    
     memory                 = 16384
 
     disks {
