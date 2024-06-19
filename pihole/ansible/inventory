@@ -1,0 +1,6 @@
+[pihole]
+10.0.0.2
+10.0.0.3
+
+[pihole:vars]
+upstream01=10.0.0.9

@@ -1,0 +1,29 @@
+- name: "Unattended Pi-hole install"
+  hosts: "{{ host }}"
+
+  vars_files:
+    - vars/secrets.yaml
+
+  tasks:
+    - name: Create directory.
+      ansible.builtin.file:
+        path: "/etc/pihole"
+        state: directory
+    - name: Create setupVars.conf.
+      ansible.builtin.file:
+        path: "/etc/pihole/setupVars.conf"
+        state: touch
+    - name: Inject configuration.
+      ansible.builtin.copy:
+        dest: "/etc/pihole/setupVars.conf"
+        content: |
+          QUERY_LOGGING=true
+          INSTALL_WEB_SERVER=true
+          WEBPASSWORD={{ web_password_hash }}
+          INSTALL_WEB_INTERFACE=true
+          LIGHTTPD_ENABLED=true
+          WEBTHEME=default-dark
+          PIHOLE_DNS_1={{ upstream01 }}
+    - name: Install Pi-hole.
+      ansible.builtin.shell:
+        cmd: "curl -L https://install.pi-hole.net | bash /dev/stdin --unattended"
