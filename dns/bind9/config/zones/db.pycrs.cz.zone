@@ -23,7 +23,6 @@ node-red        IN      CNAME   traefik
 portainer       IN      CNAME   traefik
 speedtest       IN      CNAME   traefik
 uptime-kuma     IN      CNAME   traefik
-banka   IN      CNAME   traefik
 
 ; TrueNAS services
 jellyfin IN     CNAME   traefik
@@ -38,7 +37,7 @@ pve1    IN      CNAME   traefik
 pbs1    IN      CNAME   traefik
 pfsense IN      CNAME   traefik
 scale   IN      CNAME   traefik
-has     IN      CNAME   traefik
+hass     IN      CNAME   traefik
 pihole  IN      CNAME   traefik
 pihole1 IN      CNAME   traefik
 pihole2 IN      CNAME   traefik
