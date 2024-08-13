@@ -3,8 +3,8 @@ variable "cz_remeslovkostce_zone_id" {
 }
 
 locals {
-  mx1 = "mx1.active24.com"
-  mx2 = "mx2.active24.com"
+  mx1 = "mx10.active24.cz"
+  mx2 = "mx20.active24.cz"
   dkim_key = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDW6fYb2EdwHUMv94tFLrYlQF+XTt5N1KGmguewROebRvPHgrQTQZm3IzWwVyazo3e51hIkcCwVeH3txuS/Q/qu4elEEjFSUlQ3mCpZr0/we9Mzm3zkBIyjXT+K6JdGe7wMf0dJfENibrpN5+bWBm+LbZlc0iqcXDSmIfi8oHfrzwIDAQAB"
 }
 
@@ -34,7 +34,7 @@ resource "cloudflare_record" "mx1" {
   name     = "remeslovkostce.cz"
   priority = 10
   proxied  = false
-  ttl      = 1
+  ttl      = 600
   type     = "MX"
   value    = local.mx1
   zone_id = var.cz_remeslovkostce_zone_id
@@ -44,7 +44,7 @@ resource "cloudflare_record" "mx2" {
   name     = "remeslovkostce.cz"
   priority = 20
   proxied  = false
-  ttl      = 1
+  ttl      = 600
   type     = "MX"
   value    = local.mx2
   zone_id = var.cz_remeslovkostce_zone_id
