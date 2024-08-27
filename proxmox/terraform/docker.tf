@@ -18,7 +18,7 @@ resource "proxmox_vm_qemu" "docker" {
                 disk {
                     iothread             = true
                     replicate            = true
-                    size                 = "100G"
+                    size                 = "150G"
                     storage              = "vm-data"
                 }
             }
