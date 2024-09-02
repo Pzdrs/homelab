@@ -24,6 +24,13 @@ resource "dns_a_record_set" "traefik" {
   zone      = "pycrs.cz."
 }
 
+resource "dns_cname_record" "gitlab" {
+  cname = local.traefik
+  name  = "gitlab"
+  ttl   = local.ttl
+  zone  = "pycrs.cz."
+}
+
 resource "dns_cname_record" "prowlarr" {
   cname = local.traefik
   name  = "prowlarr"
