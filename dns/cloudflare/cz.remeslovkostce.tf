@@ -59,12 +59,21 @@ resource "cloudflare_record" "dkim" {
   zone_id = var.cz_remeslovkostce_zone_id
 }
 
-resource "cloudflare_record" "spf" {
+resource "cloudflare_record" "spf1" {
   name    = "remeslovkostce.cz"
   proxied = false
   ttl     = 3600
   type    = "TXT"
-  value   = "v=spf1 include:spf.active24.com ~all"
+  value   = "v=spf1 a mx include:_spf.websupport.cz ?all"
+  zone_id = var.cz_remeslovkostce_zone_id
+}
+
+resource "cloudflare_record" "spf2" {
+  name    = "remeslovkostce.cz"
+  proxied = false
+  ttl     = 3600
+  type    = "TXT"
+  value   = "spf2.0/pra a mx include:_sid.websupport.cz ?all"
   zone_id = var.cz_remeslovkostce_zone_id
 }
 
