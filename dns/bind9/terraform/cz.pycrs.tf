@@ -24,6 +24,13 @@ resource "dns_a_record_set" "traefik" {
   zone      = "pycrs.cz."
 }
 
+resource "dns_a_record_set" "kube-traefik" {
+  addresses = ["10.0.0.214"]
+  name      = "kube.traefik"
+  ttl       = 86400
+  zone      = "pycrs.cz."
+}
+
 resource "dns_cname_record" "gitlab" {
   cname = local.traefik
   name  = "gitlab"

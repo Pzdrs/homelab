@@ -1,0 +1,48 @@
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: traefik-dashboard-service
+#   namespace: traefik
+
+# spec:
+#   type: LoadBalancer
+#   ports:
+#     - port: 8080
+#       targetPort: dashboard
+#   selector:
+#     app: traefik
+# ---
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: traefik-web-service
+#   namespace: traefik
+
+# spec:
+#   type: LoadBalancer
+#   loadBalancerIP: 10.0.0.214
+#   ports:
+#     - targetPort: web
+#       port: 80
+#   selector:
+#     app: traefik
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik-service
+  namespace: traefik
+
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.0.0.214
+  ports:
+    - name: http
+      port: 80
+    - name: https
+      port: 443
+    - name: dashboard
+      port: 8080
+  selector:
+    app: traefik
