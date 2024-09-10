@@ -26,7 +26,7 @@ resource "dns_a_record_set" "traefik" {
 
 resource "dns_a_record_set" "kube-traefik" {
   addresses = ["10.0.0.214"]
-  name      = "kube.traefik"
+  name      = "kube-traefik"
   ttl       = 86400
   zone      = "pycrs.cz."
 }

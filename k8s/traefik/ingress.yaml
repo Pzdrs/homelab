@@ -8,10 +8,9 @@ spec:
   entryPoints: [https]
   routes:
   - kind: Rule
-    match: Host(`kube.traefik.pycrs.cz`)
+    match: Host(`kube-traefik.pycrs.cz`) && (PathPrefix(`/api`) || PathPrefix(`/dashboard`))
     services:
     - kind: TraefikService
       name: api@internal
   tls:
-    domains:
-    - main: kube.traefik.pycrs.cz
+    secretName: pycrs-cz-production-tls
