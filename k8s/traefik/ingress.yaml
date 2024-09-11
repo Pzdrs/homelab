@@ -12,5 +12,4 @@ spec:
     services:
     - kind: TraefikService
       name: api@internal
-  tls:
-    secretName: pycrs-cz-production-tls
+  tls: {}
