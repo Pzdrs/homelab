@@ -1,0 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: grafana
+  name: grafana
+  namespace: grafana
+spec:
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      securityContext:
+        fsGroup: 472
+        supplementalGroups:
+          - 0
+      containers:
+        - name: grafana
+          image: grafana/grafana:latest
+          env:
+            - name: GF_DATABASE_TYPE
+              value: postgres
+            - name: GF_DATABASE_HOST
+              value: 10.0.0.15
+            - name: GF_DATABASE_USER
+              valueFrom:
+                secretKeyRef:
+                  key: user
+                  name: postgres
+            - name: GF_DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: password
+                  name: postgres
+            # Redirect URI for OIDC             
+            - name: GF_SERVER_ROOT_URL 
+              value: https://kube-grafana.pycrs.cz
+          ports:
+            - containerPort: 3000
+              name: http
+              protocol: TCP

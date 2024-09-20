@@ -1,0 +1,15 @@
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gitlab-pycrs-cz
+  namespace: traefik
+spec:
+  secretName: gitlab-pycrs-cz-production-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: "*.gitlab.pycrs.cz"
+  dnsNames:
+    - "gitlab.pycrs.cz"
+    - "*.gitlab.pycrs.cz"
