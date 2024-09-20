@@ -1,13 +1,13 @@
 locals {
-  ttl = 86400
+  ttl     = 86400
   traefik = "traefik.pycrs.cz."
 }
 
 resource "dns_a_record_set" "ns1" {
-  name = "ns1"
-  zone = "pycrs.cz."
-  addresses = [ "10.0.0.9" ]
-  ttl = local.ttl
+  name      = "ns1"
+  zone      = "pycrs.cz."
+  addresses = ["10.0.0.9"]
+  ttl       = local.ttl
 }
 
 resource "dns_cname_record" "ns" {
@@ -20,15 +20,29 @@ resource "dns_cname_record" "ns" {
 resource "dns_a_record_set" "traefik" {
   addresses = ["10.0.0.25"]
   name      = "traefik"
-  ttl       = 86400
+  ttl       = local.ttl
   zone      = "pycrs.cz."
 }
 
 resource "dns_a_record_set" "kube-traefik" {
   addresses = ["10.0.0.214"]
   name      = "kube-traefik"
-  ttl       = 86400
+  ttl       = local.ttl
   zone      = "pycrs.cz."
+}
+
+resource "dns_cname_record" "kube-grafana" {
+  cname = "kube-traefik.pycrs.cz."
+  name  = "kube-grafana"
+  ttl   = local.ttl
+  zone  = "pycrs.cz."
+}
+
+resource "dns_cname_record" "kube-homepage" {
+  cname = "kube-traefik.pycrs.cz."
+  name  = "kube-homepage"
+  ttl   = local.ttl
+  zone  = "pycrs.cz."
 }
 
 resource "dns_cname_record" "gitlab" {
