@@ -7,9 +7,6 @@ metadata:
     labels:
         app.kubernetes.io/name: homepage
 spec:
-    replicas: 1
-    strategy:
-        type: RollingUpdate
     selector:
         matchLabels:
             app.kubernetes.io/name: homepage
@@ -22,29 +19,35 @@ spec:
             automountServiceAccountToken: true
             dnsPolicy: ClusterFirst
             containers:
-                - name: homepage
-                  image: "ghcr.io/gethomepage/homepage:latest"
-                  imagePullPolicy: Always
-                  ports:
-                      - name: http
-                        containerPort: 3000
-                        protocol: TCP
-                  env:
-                    - name: HOMEPAGE_VAR_JELLYFIN_API_KEY
-                      valueFrom:
-                        secretKeyRef:
-                          key: api-key
-                          name: jellyfin
-                    - name: HOMEPAGE_VAR_JELLYSEER_API_KEY 
-                      valueFrom:
-                        secretKeyRef:
-                          key: api-key
-                          name: jellyseer
-                  volumeMounts:
-                      - name: homepage-config
-                        mountPath: /app/config
-                      - name: logs
-                        mountPath: /app/config/logs
+              - name: homepage
+                image: "ghcr.io/gethomepage/homepage:latest"
+                imagePullPolicy: Always
+                ports:
+                  - name: http
+                    containerPort: 3000
+                    protocol: TCP
+                envFrom:
+                  - secretRef:
+                      name: jellyfin
+                  - secretRef:
+                      name: jellyseer 
+                  - secretRef:
+                      name: pve1 
+                  - secretRef:
+                      name: pbs1 
+                  - secretRef:
+                      name: portainer 
+                  - secretRef:
+                      name: qbit 
+                  - secretRef:
+                      name: scale 
+                  - secretRef:
+                      name: arr 
+                volumeMounts:
+                    - name: homepage-config
+                      mountPath: /app/config
+                    - name: logs
+                      mountPath: /app/config/logs
             volumes:
                 - name: homepage-config
                   configMap:

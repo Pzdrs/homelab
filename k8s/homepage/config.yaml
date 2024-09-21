@@ -176,11 +176,11 @@ data:
             - Proxmox Backup Server:
                 icon: proxmox.png
                 href: https://pbs1.pycrs.cz
-                #widget:
-                    #type: proxmoxbackupserver
-                    #url: https://10.0.0.30:8007
-                    #username: {{HOMEPAGE_VAR_PBS1_USERNAME}}
-                    #password: {{HOMEPAGE_VAR_PBS1_PASSWORD}}
+                widget:
+                    type: proxmoxbackupserver
+                    url: http://10.0.0.30:8007
+                    username: {{HOMEPAGE_VAR_PBS1_USERNAME}}
+                    password: {{HOMEPAGE_VAR_PBS1_PASSWORD}}
             - TrueNAS SCALE:
                 icon: truenas.png
                 href: https://scale.pycrs.cz
