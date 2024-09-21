@@ -39,7 +39,7 @@ spec:
                   name: postgres
             # Redirect URI for OIDC             
             - name: GF_SERVER_ROOT_URL 
-              value: https://kube-grafana.pycrs.cz
+              value: https://grafana.pycrs.cz
           ports:
             - containerPort: 3000
               name: http

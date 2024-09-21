@@ -43,6 +43,8 @@ spec:
                       name: scale 
                   - secretRef:
                       name: arr 
+                  - secretRef:
+                      name: grafana 
                 volumeMounts:
                     - name: homepage-config
                       mountPath: /app/config

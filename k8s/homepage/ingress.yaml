@@ -8,7 +8,7 @@ spec:
   entryPoints: [https]
   routes:
   - kind: Rule
-    match: Host(`kube-homepage.pycrs.cz`) 
+    match: Host(`hub.pycrs.cz`) 
     services:
     - kind: Service
       name: homepage

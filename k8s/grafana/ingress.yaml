@@ -8,7 +8,7 @@ spec:
   entryPoints: [https]
   routes:
   - kind: Rule
-    match: Host(`kube-grafana.pycrs.cz`) 
+    match: Host(`grafana.pycrs.cz`) 
     services:
     - kind: Service
       name: grafana

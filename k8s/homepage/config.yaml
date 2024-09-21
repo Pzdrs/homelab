@@ -142,8 +142,11 @@ data:
             - Grafana:
                 icon: grafana.png
                 href: https://grafana.pycrs.cz
-                server: my-remote-docker
-                container: grafana
+                widget:
+                    type: grafana
+                    url: https://grafana.pycrs.cz
+                    username: {{HOMEPAGE_VAR_GRAFANA_USERNAME}} 
+                    password: {{HOMEPAGE_VAR_GRAFANA_PASSWORD}}
             - InfluxDB:
                 icon: influxdb.png
                 href: https://influx.pycrs.cz
