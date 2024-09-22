@@ -40,14 +40,14 @@ resource "dns_cname_record" "gitlab" {
 }
 
 resource "dns_cname_record" "prowlarr" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "prowlarr"
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }
 
 resource "dns_cname_record" "jellyseer" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "jellyseer"
   ttl   = local.ttl
   zone  = "pycrs.cz."
@@ -68,14 +68,14 @@ resource "dns_cname_record" "speedtest" {
 }
 
 resource "dns_cname_record" "sonarr" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "sonarr"
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }
 
 resource "dns_cname_record" "qbittorrent" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "qbittorrent"
   ttl   = local.ttl
   zone  = "pycrs.cz."
@@ -89,7 +89,7 @@ resource "dns_cname_record" "grafana" {
 }
 
 resource "dns_cname_record" "jellyfin" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "jellyfin"
   ttl   = local.ttl
   zone  = "pycrs.cz."
@@ -117,7 +117,7 @@ resource "dns_cname_record" "hub" {
 }
 
 resource "dns_cname_record" "radarr" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "radarr"
   ttl   = local.ttl
   zone  = "pycrs.cz."
@@ -137,63 +137,63 @@ resource "dns_cname_record" "portainer" {
   zone  = "pycrs.cz."
 }
 resource "dns_cname_record" "pihole1" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "pihole1"
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }
 
 resource "dns_cname_record" "hass" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "hass"
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }
 
 resource "dns_cname_record" "pihole" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "pihole"
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }
 
 resource "dns_cname_record" "pihole2" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "pihole2"
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }
 
 resource "dns_cname_record" "pve1" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "pve1"
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }
 
 resource "dns_cname_record" "pbs1" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "pbs1"
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }
 
 resource "dns_cname_record" "pfsense" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "pfsense"
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }
 
 resource "dns_cname_record" "unifi" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "unifi"
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }
 
 resource "dns_cname_record" "scale" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "scale"
   ttl   = local.ttl
   zone  = "pycrs.cz."

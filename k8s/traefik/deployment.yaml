@@ -20,10 +20,12 @@ spec:
       serviceAccountName: traefik-account
       containers:
         - name: traefik
-          image: traefik:v3.1.2
+          image: traefik:v3.1.4
           args:
             - --providers.kubernetesingress
             - --providers.kubernetescrd
+            - --providers.file.directory=/etc/traefik/conf
+            - --providers.file.watch=true
             - --api.dashboard=true
             - --entryPoints.http.address=:80
             - --entryPoints.https.address=:443
@@ -35,3 +37,10 @@ spec:
               containerPort: 443
             - name: dashboard
               containerPort: 8080
+          volumeMounts:
+            - name: dynamic-configuration
+              mountPath: /etc/traefik/conf
+      volumes:
+        - name: dynamic-configuration
+          configMap:
+            name: dynamic-configuration
