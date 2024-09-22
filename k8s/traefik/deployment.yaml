@@ -36,8 +36,6 @@ spec:
               containerPort: 80
             - name: https
               containerPort: 443
-            - name: dashboard
-              containerPort: 8080
           volumeMounts:
             - name: dynamic-configuration
               mountPath: /etc/traefik/conf
