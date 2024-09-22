@@ -26,6 +26,7 @@ spec:
             - --providers.kubernetescrd
             - --providers.file.directory=/etc/traefik/conf
             - --providers.file.watch=true
+            - --serversTransport.insecureSkipVerify=true
             - --api.dashboard=true
             - --entryPoints.http.address=:80
             - --entryPoints.https.address=:443
