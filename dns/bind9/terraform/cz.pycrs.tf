@@ -198,3 +198,10 @@ resource "dns_cname_record" "scale" {
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }
+
+resource "dns_cname_record" "immich" {
+  cname = local.kube-traefik
+  name  = "immich"
+  ttl   = local.ttl
+  zone  = "pycrs.cz."
+}

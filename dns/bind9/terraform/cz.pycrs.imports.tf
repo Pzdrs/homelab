@@ -127,3 +127,8 @@ import {
   to = dns_cname_record.unifi
   id = "unifi.pycrs.cz."
 }
+
+import {
+  to = dns_cname_record.immich
+  id = "immich.pycrs.cz."
+}
