@@ -45,6 +45,12 @@ spec:
                       name: arr 
                   - secretRef:
                       name: grafana 
+                  - secretRef:
+                      name: pihole 
+                  - secretRef:
+                      name: home-assistant 
+                  - secretRef:
+                      name: unifi 
                 volumeMounts:
                     - name: homepage-config
                       mountPath: /app/config

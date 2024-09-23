@@ -62,6 +62,11 @@ data:
             - UniFi Controller:
                 icon: unifi.png
                 href: https://unifi.pycrs.cz
+                widget:
+                    type: unifi
+                    url: https://unifi.pycrs.cz
+                    username: {{HOMEPAGE_VAR_UNIFI_USERNAME}} 
+                    password: {{HOMEPAGE_VAR_UNIFI_PASSWORD}} 
             - Pi-hole (primary):
                 icon: pi-hole.png
                 href: https://pihole1.pycrs.cz
@@ -69,6 +74,8 @@ data:
                 widget:
                     type: pihole
                     url: http://10.0.0.2
+                    version: 5
+                    key: {{HOMEPAGE_VAR_PIHOLE_01_API_KEY}}
             - Pi-hole (secondary):
                 icon: pi-hole.png
                 href: https://pihole1.pycrs.cz
@@ -76,12 +83,23 @@ data:
                 widget:
                     type: pihole
                     url: http://10.0.0.3
+                    version: 5
+                    key: {{HOMEPAGE_VAR_PIHOLE_02_API_KEY}}
+            - Pi-hole (tertiary):
+                icon: pi-hole.png
+                href: https://pihole3.pycrs.cz
+                ping: http://10.0.0.4
+                widget:
+                    type: pihole
+                    url: http://10.0.0.4
+                    version: 5
+                    key: {{HOMEPAGE_VAR_PIHOLE_03_API_KEY}}
             - Traefik:
                 icon: traefik.png
                 href: https://traefik.pycrs.cz/dashboard/
                 widget:
                     type: traefik
-                    url: http://10.0.0.25
+                    url: https://traefik.pycrs.cz
             - Traefik (kube):
                 icon: traefik.png
                 href: https://kube-traefik.pycrs.cz/dashboard/
@@ -194,6 +212,10 @@ data:
             - HomeAssistant:
                 icon: home-assistant.png
                 href: https://hass.pycrs.cz
+                widget:
+                    type: homeassistant
+                    url: https://hass.pycrs.cz
+                    key: {{HOMEPAGE_VAR_HOMEASSISTANT_API_TOKEN}}
     docker.yaml: |
         my-remote-docker:
             host: 10.0.0.15
