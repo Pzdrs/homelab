@@ -30,12 +30,15 @@ spec:
             - --api.dashboard=true
             - --entryPoints.http.address=:80
             - --entryPoints.https.address=:443
+            - --entryPoints.smtps.address=:465
             - --log.level=DEBUG
           ports:
             - name: http
               containerPort: 80
             - name: https
               containerPort: 443
+            - name: smtps
+              containerPort: 465 
           volumeMounts:
             - name: dynamic-configuration
               mountPath: /etc/traefik/conf

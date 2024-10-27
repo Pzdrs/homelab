@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mailrise
+  namespace: mailrise
+spec:
+  selector:
+    matchLabels:
+      app: mailrise
+  template:
+    metadata:
+      labels:
+        app: mailrise
+    spec:
+      containers:
+      - name: mailrise
+        image: yoryan/mailrise 
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        envFrom:
+          - secretRef:
+              name: logins 
+        ports:
+          - containerPort: 8025
+        volumeMounts:
+          - name: configuration
+            mountPath: /etc/mailrise.conf
+            subPath: mailrise.conf
+      volumes:
+        - name: configuration
+          configMap:
+            name: configuration

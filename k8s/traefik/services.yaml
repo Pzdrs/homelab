@@ -13,7 +13,7 @@ spec:
       port: 80
     - name: https
       port: 443
-    - name: dashboard
-      port: 8080
+    - name: smtps 
+      port: 465
   selector:
     app: traefik

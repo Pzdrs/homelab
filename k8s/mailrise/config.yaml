@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configuration
+  namespace: mailrise
+data:
+  mailrise.conf: |
+    configs:
+      pushover:
+        urls:
+    
+    # We can ignore TLS, because both Traefik and Mailrise are on the same cluster, so only client -> Traefik needs encryption.
+    # tls:
+
+    smtp:
+      auth:
+        basic:
+          mailrise: !env_var DEFAULT_PASSWORD
+
+

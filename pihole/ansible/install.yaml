@@ -1,6 +1,7 @@
 ---
 - name: "Unattended Pi-hole install"
   hosts: "{{ host }}"
+  become: true
 
   vars_files:
     - vars/secrets.yaml
@@ -28,4 +29,4 @@
       ansible.builtin.shell:
         executable: "/bin/bash"
         cmd: |
-          "curl -sSL https://install.pi-hole.net | bash /dev/stdin --unattended"
+          curl -sSL https://install.pi-hole.net | bash /dev/stdin --unattended

@@ -205,3 +205,10 @@ resource "dns_cname_record" "immich" {
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }
+
+resource "dns_cname_record" "mailrise" {
+  cname = local.kube-traefik
+  name  = "mailrise"
+  ttl   = local.ttl
+  zone  = "pycrs.cz."
+}
