@@ -22,6 +22,8 @@ spec:
         envFrom:
           - secretRef:
               name: logins 
+          - secretRef:
+              name: smtp 
         ports:
           - containerPort: 8025
         volumeMounts:

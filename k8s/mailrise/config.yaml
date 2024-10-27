@@ -6,8 +6,10 @@ metadata:
 data:
   mailrise.conf: |
     configs:
-      pushover:
+      # Simply realy to another SMTP server
+      "*@pycrs.cz":
         urls:
+        - !env_var GMAIL_URL 
     
     # We can ignore TLS, because both Traefik and Mailrise are on the same cluster, so only client -> Traefik needs encryption.
     # tls:
