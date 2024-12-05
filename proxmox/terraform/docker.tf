@@ -10,7 +10,7 @@ resource "proxmox_vm_qemu" "docker" {
     scsihw                 = "virtio-scsi-single"
 
     cores                  = 4
-    memory                 = 20480
+    memory                 = 24576 
 
     disks {
         virtio {
@@ -18,7 +18,7 @@ resource "proxmox_vm_qemu" "docker" {
                 disk {
                     iothread             = true
                     replicate            = true
-                    size                 = "150G"
+                    size                 = "160G"
                     storage              = "vm-data"
                 }
             }

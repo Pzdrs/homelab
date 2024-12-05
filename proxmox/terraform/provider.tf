@@ -9,7 +9,8 @@ terraform {
 
 variable "proxmox_api_url" {
   type = string
-  default = "https://pve1.pycrs.cz/api2/json"
+  #default = "https://pve1.pycrs.cz/api2/json"
+  default = "https://10.0.0.254:8006/api2/json"
 }
 
 variable "proxmox_api_token_id" {

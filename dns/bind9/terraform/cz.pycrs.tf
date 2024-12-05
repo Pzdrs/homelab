@@ -39,13 +39,6 @@ resource "dns_cname_record" "gitlab" {
   zone  = "pycrs.cz."
 }
 
-resource "dns_cname_record" "hikeit_api" {
-  cname = local.kube-traefik
-  name  = "hikeit-api"
-  ttl   = local.ttl
-  zone  = "pycrs.cz."
-}
-
 resource "dns_cname_record" "prowlarr" {
   cname = local.kube-traefik
   name  = "prowlarr"
