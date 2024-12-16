@@ -160,9 +160,20 @@ data:
             - https-redirect
           tls: {}
           service: unifi-controller
+        remeslovkostce:
+          entryPoints: [https]
+          rule: Host(`remeslovkostce.cz`) || Host(`api.remeslovkostce.cz`) || Host(`www.remeslovkostce.cz`)
+          middlewares:
+            - https-redirect
+          tls: {}
+          service: remeslovkostce
   services.yaml: |
     http:
       services:
+        remeslovkostce:
+          loadBalancer:
+            servers:
+              - url: "https://traefik.pycrs.cz"
         immich:
           loadBalancer:
             servers:
