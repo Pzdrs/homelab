@@ -8,22 +8,19 @@ data:
     http:
       routers:
         immich:
-          entryPoints: ["https"]
           rule: "Host(`immich.pycrs.cz`)"
           tls: {}
           middlewares:
             - immich-buffering
           service: immich
         jellyfin:
-          entryPoints: ["https"]
           rule: "Host(`jellyfin.pycrs.cz`)"
           tls: {}
           middlewares:
             - default-headers
-            - https-redirect
+            # - https-redirect
           service: jellyfin
         jellyseer:
-          entryPoints: ["https"]
           rule: "Host(`jellyseer.pycrs.cz`)"
           tls: {}
           middlewares:
@@ -32,7 +29,6 @@ data:
             - https-redirect
           service: jellyseer
         radarr:
-          entryPoints: ["https"]
           rule: "Host(`radarr.pycrs.cz`)"
           tls: {}
           middlewares:
@@ -41,7 +37,6 @@ data:
             - https-redirect
           service: radarr
         sonarr:
-          entryPoints: ["https"]
           rule: "Host(`sonarr.pycrs.cz`)"
           tls: {}
           middlewares:
@@ -50,7 +45,6 @@ data:
             - https-redirect
           service: sonarr
         prowlarr:
-          entryPoints: ["https"]
           rule: "Host(`prowlarr.pycrs.cz`)"
           tls: {}
           middlewares:
@@ -59,7 +53,6 @@ data:
             - https-redirect
           service: prowlarr
         qbittorrent:
-          entryPoints: ["https"]
           rule: "Host(`qbittorrent.pycrs.cz`)"
           tls: {}
           middlewares:
@@ -68,8 +61,6 @@ data:
             - https-redirect
           service: qbittorrent
         pve1:
-          entryPoints:
-            - "https"
           rule: "Host(`pve1.pycrs.cz`)"
           middlewares:
             - internal-only
@@ -78,8 +69,6 @@ data:
           tls: {}
           service: proxmox1
         pbs1:
-          entryPoints:
-            - "https"
           rule: "Host(`pbs1.pycrs.cz`)"
           middlewares:
             - internal-only
@@ -88,8 +77,6 @@ data:
           tls: {}
           service: proxmox-backup-server1
         pfsense:
-          entryPoints:
-            - "https"
           rule: "Host(`pfsense.pycrs.cz`)"
           middlewares:
             - internal-only
@@ -98,8 +85,6 @@ data:
           tls: {}
           service: pfsense
         truenas:
-          entryPoints:
-            - "https"
           rule: "Host(`scale.pycrs.cz`)"
           middlewares:
             - internal-only
@@ -108,8 +93,6 @@ data:
           tls: {}
           service: truenas-scale
         homeassistant:
-          entryPoints:
-            - "https"
           rule: "Host(`hass.pycrs.cz`)"
           middlewares:
             - internal-only
@@ -118,8 +101,6 @@ data:
           tls: {}
           service: home-assistant
         pihole:
-          entryPoints:
-            - "https"
           rule: "Host(`pihole.pycrs.cz`)"
           middlewares:
             - internal-only
@@ -129,8 +110,6 @@ data:
           tls: {}
           service: pihole-vip
         pihole1:
-          entryPoints:
-            - "https"
           rule: "Host(`pihole1.pycrs.cz`)"
           middlewares:
             - internal-only
@@ -140,8 +119,6 @@ data:
           tls: {}
           service: pihole1
         pihole2:
-          entryPoints:
-            - "https"
           rule: "Host(`pihole2.pycrs.cz`)"
           middlewares:
             - internal-only
@@ -151,8 +128,6 @@ data:
           tls: {}
           service: pihole2
         unifi:
-          entryPoints:
-            - "https"
           rule: "Host(`unifi.pycrs.cz`)"
           middlewares:
             - internal-only
@@ -161,7 +136,6 @@ data:
           tls: {}
           service: unifi-controller
         remeslovkostce:
-          entryPoints: [https]
           rule: Host(`remeslovkostce.cz`) || Host(`api.remeslovkostce.cz`) || Host(`www.remeslovkostce.cz`)
           middlewares:
             - https-redirect

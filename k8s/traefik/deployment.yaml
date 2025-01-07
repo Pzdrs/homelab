@@ -21,17 +21,6 @@ spec:
       containers:
         - name: traefik
           image: traefik:v3.1.4
-          args:
-            - --providers.kubernetesingress
-            - --providers.kubernetescrd
-            - --providers.file.directory=/etc/traefik/conf
-            - --providers.file.watch=true
-            - --serversTransport.insecureSkipVerify=true
-            - --api.dashboard=true
-            - --entryPoints.http.address=:80
-            - --entryPoints.https.address=:443
-            - --entryPoints.smtps.address=:465
-            - --log.level=DEBUG
           ports:
             - name: http
               containerPort: 80
@@ -42,7 +31,14 @@ spec:
           volumeMounts:
             - name: dynamic-configuration
               mountPath: /etc/traefik/conf
+            - name: static-configuration
+              mountPath: /etc/traefik/traefik.yaml
+              subPath: traefik.yaml
       volumes:
         - name: dynamic-configuration
           configMap:
             name: dynamic-configuration
+        - name: static-configuration
+          configMap:
+            name: static-configuration
+        

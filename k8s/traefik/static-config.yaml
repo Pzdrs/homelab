@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: static-configuration
+  namespace: traefik
+data:
+  traefik.yaml: |
+    api:
+      dashboard: true
+
+    log:
+      level: DEBUG
+
+    entryPoints:
+      http:
+        address: ":80"
+      https:
+        address: ":443"
+        asDefault: true
+      smtps:
+        address: ":465"
+
+    providers:
+      kubernetesIngress: {}
+      kubernetesCRD: {}
+      file:
+        directory: "/etc/traefik/conf"
+        watch: true
+
+    serversTransport:
+      insecureSkipVerify: true
