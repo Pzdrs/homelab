@@ -3,7 +3,7 @@ resource "proxmox_vm_qemu" "talos-control-0" {
   name        = "talos-control-0"
   target_node = "pve"
   onboot      = true
-  memory      = 1024 * 4
+  memory      = 1024 * 4 
   cores       = 2
   scsihw      = "virtio-scsi-single"
 
@@ -36,7 +36,7 @@ resource "proxmox_vm_qemu" "talos-worker-0" {
   name        = "talos-worker-0"
   target_node = "pve"
   onboot      = true
-  memory      = 1024 * 4
+  memory      = 1024 * 8
   cores       = 2
   scsihw      = "virtio-scsi-single"
 

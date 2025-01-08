@@ -18,7 +18,6 @@ data:
           tls: {}
           middlewares:
             - default-headers
-            # - https-redirect
           service: jellyfin
         jellyseer:
           rule: "Host(`jellyseer.pycrs.cz`)"
@@ -26,7 +25,6 @@ data:
           middlewares:
             - internal-only
             - default-headers
-            - https-redirect
           service: jellyseer
         radarr:
           rule: "Host(`radarr.pycrs.cz`)"
@@ -34,7 +32,6 @@ data:
           middlewares:
             - internal-only
             - default-headers
-            - https-redirect
           service: radarr
         sonarr:
           rule: "Host(`sonarr.pycrs.cz`)"
@@ -42,7 +39,6 @@ data:
           middlewares:
             - internal-only
             - default-headers
-            - https-redirect
           service: sonarr
         prowlarr:
           rule: "Host(`prowlarr.pycrs.cz`)"
@@ -50,7 +46,6 @@ data:
           middlewares:
             - internal-only
             - default-headers
-            - https-redirect
           service: prowlarr
         qbittorrent:
           rule: "Host(`qbittorrent.pycrs.cz`)"
@@ -58,14 +53,12 @@ data:
           middlewares:
             - internal-only
             - default-headers
-            - https-redirect
           service: qbittorrent
         pve1:
           rule: "Host(`pve1.pycrs.cz`)"
           middlewares:
             - internal-only
             - default-headers
-            - https-redirect
           tls: {}
           service: proxmox1
         pbs1:
@@ -73,7 +66,6 @@ data:
           middlewares:
             - internal-only
             - default-headers
-            - https-redirect
           tls: {}
           service: proxmox-backup-server1
         pfsense:
@@ -81,7 +73,6 @@ data:
           middlewares:
             - internal-only
             - default-headers
-            - https-redirect
           tls: {}
           service: pfsense
         truenas:
@@ -89,7 +80,6 @@ data:
           middlewares:
             - internal-only
             - default-headers
-            - https-redirect
           tls: {}
           service: truenas-scale
         homeassistant:
@@ -97,7 +87,6 @@ data:
           middlewares:
             - internal-only
             - default-headers
-            - https-redirect
           tls: {}
           service: home-assistant
         pihole:
@@ -106,7 +95,6 @@ data:
             - internal-only
             - default-headers
         #    - pihole-prefix
-            - https-redirect
           tls: {}
           service: pihole-vip
         pihole1:
@@ -115,7 +103,6 @@ data:
             - internal-only
             - default-headers
             - pihole-prefix
-            - https-redirect
           tls: {}
           service: pihole1
         pihole2:
@@ -124,7 +111,6 @@ data:
             - internal-only
             - default-headers
             - pihole-prefix
-            - https-redirect
           tls: {}
           service: pihole2
         unifi:
@@ -132,13 +118,10 @@ data:
           middlewares:
             - internal-only
             - default-headers
-            - https-redirect
           tls: {}
           service: unifi-controller
         remeslovkostce:
           rule: Host(`remeslovkostce.cz`) || Host(`api.remeslovkostce.cz`) || Host(`www.remeslovkostce.cz`)
-          middlewares:
-            - https-redirect
           tls: {}
           service: remeslovkostce
   services.yaml: |
