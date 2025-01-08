@@ -105,7 +105,7 @@ data:
                 href: https://kube-traefik.pycrs.cz/dashboard/
                 widget:
                     type: traefik
-                    url: http://kube-traefik.pycrs.cz
+                    url: https://kube-traefik.pycrs.cz
             - Uptime-kuma:
                 icon: uptime-kuma.png
                 href: https://uptime-kuma.pycrs.cz

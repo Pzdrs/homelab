@@ -94,7 +94,7 @@ data:
           middlewares:
             - internal-only
             - default-headers
-        #    - pihole-prefix
+            - pihole-admin
           tls: {}
           service: pihole-vip
         pihole1:
@@ -102,7 +102,7 @@ data:
           middlewares:
             - internal-only
             - default-headers
-            - pihole-prefix
+            - pihole-admin
           tls: {}
           service: pihole1
         pihole2:
@@ -110,7 +110,7 @@ data:
           middlewares:
             - internal-only
             - default-headers
-            - pihole-prefix
+            - pihole-admin
           tls: {}
           service: pihole2
         unifi:
@@ -200,18 +200,13 @@ data:
   middlewares.yaml: |
     http:
       middlewares:
-        https-redirect:
-          redirectScheme:
-            scheme: https
-            permanent: true
-
         internal-only:
           IPAllowList:
             sourceRange:
               - "10.0.0.0/8"
               - "192.168.0.0/24"
 
-        pihole-prefix:
+        pihole-add-prefix:
           addPrefix:
             prefix: "/admin"
 
@@ -219,6 +214,12 @@ data:
           redirectRegex:
             regex: /admin/$
             replacement: /
+
+        pihole-admin:
+          chain:
+            middlewares:
+              - pihole-redirect
+              - pihole-add-prefix
 
         default-headers:
           headers:
