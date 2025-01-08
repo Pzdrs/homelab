@@ -199,7 +199,7 @@ data:
                 href: https://pbs1.pycrs.cz
                 widget:
                     type: proxmoxbackupserver
-                    url: http://10.0.0.30:8007
+                    url: https://pbs1.pycrs.cz
                     username: {{HOMEPAGE_VAR_PBS1_USERNAME}}
                     password: {{HOMEPAGE_VAR_PBS1_PASSWORD}}
             - TrueNAS SCALE:
