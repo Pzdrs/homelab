@@ -214,7 +214,7 @@ resource "dns_cname_record" "mailrise" {
 }
 
 resource "dns_cname_record" "netbox" {
-  cname = local.kube-traefik
+  cname = local.traefik
   name  = "netbox"
   ttl   = local.ttl
   zone  = "pycrs.cz."
