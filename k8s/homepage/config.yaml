@@ -106,6 +106,9 @@ data:
                 widget:
                     type: traefik
                     url: https://kube-traefik.pycrs.cz
+            - Netbox:
+                icon: netbox.png
+                href: https://netbox.pycrs.cz
             - Uptime-kuma:
                 icon: uptime-kuma.png
                 href: https://uptime-kuma.pycrs.cz
