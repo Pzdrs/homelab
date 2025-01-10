@@ -115,6 +115,13 @@ data:
             - Guacamole:
                 icon: guacamole.png
                 href: https://guacamole.pycrs.cz
+            - Authentik:
+                icon: authentik.png
+                href: https://authentik.pycrs.cz
+                widget:
+                    type: authentik
+                    url: https://authentik.pycrs.cz
+                    key: {{HOMEPAGE_VAR_AUTHENTIK_API_KEY}}
         - Media management:
             - Jellyfin:
                 icon: jellyfin.png

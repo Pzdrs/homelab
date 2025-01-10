@@ -51,6 +51,8 @@ spec:
                       name: home-assistant 
                   - secretRef:
                       name: unifi 
+                  - secretRef:
+                      name: authentik 
                 volumeMounts:
                     - name: homepage-config
                       mountPath: /app/config
