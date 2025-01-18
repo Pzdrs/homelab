@@ -7,6 +7,7 @@ metadata:
 
 spec:
   type: LoadBalancer
+  externalTrafficPolicy: Local
   loadBalancerIP: 10.0.0.214
   ports:
     - name: http

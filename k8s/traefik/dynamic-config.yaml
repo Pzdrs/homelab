@@ -12,6 +12,7 @@ data:
           tls: {}
           middlewares:
             - immich-buffering
+            - internal-only
           service: immich
         jellyfin:
           rule: "Host(`jellyfin.pycrs.cz`)"
