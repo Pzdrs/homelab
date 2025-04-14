@@ -124,11 +124,15 @@ data:
         remeslovkostce:
           rule: Host(`remeslovkostce.cz`) || Host(`api.remeslovkostce.cz`) || Host(`www.remeslovkostce.cz`)
           tls: {}
-          service: remeslovkostce
+          service: traefik-docker
+        epapp:
+          rule: Host(`epapp.pycrs.cz`)
+          tls: {}
+          service: traefik-docker
   services.yaml: |
     http:
       services:
-        remeslovkostce:
+        traefik-docker:
           loadBalancer:
             servers:
               - url: "https://traefik.pycrs.cz"
