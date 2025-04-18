@@ -39,6 +39,20 @@ resource "dns_cname_record" "gitlab" {
   zone  = "pycrs.cz."
 }
 
+resource "dns_cname_record" "your-spotify" {
+  cname = local.kube-traefik
+  name  = "your-spotify"
+  ttl   = local.ttl
+  zone  = "pycrs.cz."
+}
+
+resource "dns_cname_record" "epapp" {
+  cname = local.kube-traefik
+  name  = "epapp"
+  ttl   = local.ttl
+  zone  = "pycrs.cz."
+}
+
 resource "dns_cname_record" "prowlarr" {
   cname = local.kube-traefik
   name  = "prowlarr"

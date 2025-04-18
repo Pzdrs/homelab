@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: your-spotify
+  namespace: your-spotify
+spec:
+  selector:
+    matchLabels:
+      app: your-spotify
+  template:
+    metadata:
+      labels:
+        app: your-spotify
+    spec:
+      containers:
+      - name: your-spotify
+        image: lscr.io/linuxserver/your_spotify:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi
+        ports:
+          - name: https
+            containerPort: 443
+        env:
+          - name: APP_URL
+            value: "https://your-spotify.pycrs.cz"
+          - name: MONGO_ENDPOINT
+            value: "mongodb://10.0.0.15:27017/your-spotify"
+        envFrom:
+          - secretRef:
+              name: spotify

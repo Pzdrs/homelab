@@ -28,3 +28,12 @@ resource "cloudflare_record" "mc_smp_dynmap" {
   value   = "home.pycrs.cz"
   zone_id = var.cz_pycrs_zone_id
 }
+
+resource "cloudflare_record" "epapp" {
+  name    = "epapp"
+  proxied = true
+  ttl     = 1
+  type    = "CNAME"
+  value   = "home.pycrs.cz"
+  zone_id = var.cz_pycrs_zone_id
+}
