@@ -58,7 +58,9 @@ data:
                 href: https://speedtest.pycrs.cz
                 widget:
                     type: speedtest
-                    url: http://10.0.0.15:8765
+                    url: https://speedtest.pycrs.cz
+                    version: 2
+                    key: {{HOMEPAGE_VAR_SPEEDTEST_TRACKER_API_KEY}}
             - UniFi Controller:
                 icon: unifi.png
                 href: https://unifi.pycrs.cz
