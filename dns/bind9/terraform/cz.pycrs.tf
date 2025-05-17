@@ -75,7 +75,7 @@ resource "dns_cname_record" "influx" {
 }
 
 resource "dns_cname_record" "speedtest" {
-  cname = local.traefik
+  cname = local.kube-traefik
   name  = "speedtest"
   ttl   = local.ttl
   zone  = "pycrs.cz."
