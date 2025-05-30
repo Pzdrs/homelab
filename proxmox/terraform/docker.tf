@@ -10,7 +10,7 @@ resource "proxmox_vm_qemu" "docker" {
     scsihw                 = "virtio-scsi-single"
 
     cores                  = 4
-    memory                 = 24576 
+    memory                 = 20*1024 
 
     disks {
         virtio {

@@ -10,6 +10,7 @@ data:
       "*@pycrs.cz":
         urls:
         - !env_var GMAIL_URL 
+        - signal://10.0.0.15:9922/+420607885123
     
     # We can ignore TLS, because both Traefik and Mailrise are on the same cluster, so only client -> Traefik needs encryption.
     # tls:

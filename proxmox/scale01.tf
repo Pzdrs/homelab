@@ -19,7 +19,7 @@ resource "proxmox_vm_qemu" "scale01" {
         disk {
           iothread  = true
           replicate = true
-          size      = "50G"
+          size      = "60G"
           storage   = "vm-data"
         }
       }

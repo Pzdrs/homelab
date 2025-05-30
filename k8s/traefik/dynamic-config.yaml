@@ -83,6 +83,13 @@ data:
             - default-headers
           tls: {}
           service: truenas-scale
+        truenas-scale-portainer:
+          rule: "Host(`scale-portainer.pycrs.cz`)"
+          middlewares:
+            - internal-only
+            - default-headers
+          tls: {}
+          service: truenas-scale-portainer
         homeassistant:
           rule: "Host(`hass.pycrs.cz`)"
           middlewares:
@@ -194,6 +201,10 @@ data:
           loadBalancer:
             servers:
               - url: "https://10.0.0.10"
+        truenas-scale-portainer:
+          loadBalancer:
+            servers:
+              - url: "https://10.0.0.10:9443"
         home-assistant:
           loadBalancer:
             servers:

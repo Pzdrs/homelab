@@ -150,6 +150,14 @@ resource "dns_cname_record" "portainer" {
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }
+
+resource "dns_cname_record" "scale-portainer" {
+  cname = local.kube-traefik
+  name  = "scale-portainer"
+  ttl   = local.ttl
+  zone  = "pycrs.cz."
+}
+
 resource "dns_cname_record" "pihole1" {
   cname = local.kube-traefik
   name  = "pihole1"
