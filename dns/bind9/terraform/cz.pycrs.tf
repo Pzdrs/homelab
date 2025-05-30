@@ -228,6 +228,13 @@ resource "dns_cname_record" "immich" {
   zone  = "pycrs.cz."
 }
 
+resource "dns_cname_record" "immich-public-proxy" {
+  cname = local.kube-traefik
+  name  = "photos"
+  ttl   = local.ttl
+  zone  = "pycrs.cz."
+}
+
 resource "dns_cname_record" "mailrise" {
   cname = local.kube-traefik
   name  = "mailrise"

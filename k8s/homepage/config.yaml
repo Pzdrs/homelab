@@ -137,7 +137,8 @@ data:
                 href: https://jellyseer.pycrs.cz
                 widget:
                     type: jellyseerr
-                    url: http://10.0.0.10:10241
+                    #url: http://10.0.0.10:10241
+                    url: https://jellyseer.pycrs.cz
                     key: {{HOMEPAGE_VAR_JELLYSEER_API_KEY}}
             - Radarr:
                 icon: radarr.png
@@ -158,7 +159,7 @@ data:
                 href: https://prowlarr.pycrs.cz
                 widget:
                     type: prowlarr
-                    url: http://10.0.0.10:9696
+                    url: https://prowlarr.pycrs.cz
                     key: {{HOMEPAGE_VAR_PROWLARR_API_KEY}}
             - qBittorrent:
                 icon: qbittorrent.png

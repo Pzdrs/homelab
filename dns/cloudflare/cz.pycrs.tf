@@ -37,3 +37,12 @@ resource "cloudflare_record" "epapp" {
   value   = "home.pycrs.cz"
   zone_id = var.cz_pycrs_zone_id
 }
+
+resource "cloudflare_record" "immich-public-proxy" {
+  name = "photos"
+  proxied = true
+  ttl = 1
+  type = "CNAME"
+  value = "home.pycrs.cz"
+  zone_id = var.cz_pycrs_zone_id
+}

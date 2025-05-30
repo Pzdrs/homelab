@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: immich-public-proxy
+  namespace: immich
+spec:
+  selector:
+    matchLabels:
+      app: immich-public-proxy
+  template:
+    metadata:
+      labels:
+        app: immich-public-proxy
+    spec:
+      containers:
+      - name: immich-public-proxy
+        image: alangrainger/immich-public-proxy:latest
+        env:
+          - name: IMMICH_URL
+            value: "https://immich.pycrs.cz"
+        ports:
+        - containerPort: 3000
