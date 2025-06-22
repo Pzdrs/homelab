@@ -7,6 +7,20 @@ data:
   routers.yaml: |
     http:
       routers:
+        s3:
+          rule: "Host(`s3.pycrs.cz`)"
+          tls: {}
+          middlewares:
+            - internal-only
+            - default-headers
+          service: minio
+        minio-console:
+          rule: "Host(`minio.pycrs.cz`)"
+          tls: {}
+          middlewares:
+            - internal-only
+            - default-headers
+          service: minio-console
         immich:
           rule: "Host(`immich.pycrs.cz`)"
           tls: {}
@@ -139,6 +153,14 @@ data:
   services.yaml: |
     http:
       services:
+        minio:
+          loadBalancer:
+            servers:
+              - url: "http://10.0.0.10:9010"
+        minio-console:
+          loadBalancer:
+            servers:
+              - url: "http://10.0.0.10:9020"
         traefik-docker:
           loadBalancer:
             servers:

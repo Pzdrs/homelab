@@ -32,9 +32,30 @@ resource "dns_a_record_set" "kube-traefik" {
   zone      = "pycrs.cz."
 }
 
+resource "dns_cname_record" "minio" {
+  cname = local.kube-traefik
+  name  = "minio"
+  ttl   = local.ttl
+  zone  = "pycrs.cz."
+}
+
+resource "dns_cname_record" "s3" {
+  cname = local.kube-traefik
+  name  = "s3"
+  ttl   = local.ttl
+  zone  = "pycrs.cz."
+}
+
 resource "dns_cname_record" "gitlab" {
   cname = local.traefik
   name  = "gitlab"
+  ttl   = local.ttl
+  zone  = "pycrs.cz."
+}
+
+resource "dns_cname_record" "gitlab-registry" {
+  cname = local.traefik
+  name  = "registry.gitlab"
   ttl   = local.ttl
   zone  = "pycrs.cz."
 }

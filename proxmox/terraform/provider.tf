@@ -2,15 +2,15 @@ terraform {
   required_providers {
     proxmox = {
       source = "Telmate/proxmox"
-      version = "3.0.1-rc3"
+      version = "3.0.2-rc01"
     }
   }
 }
 
 variable "proxmox_api_url" {
   type = string
-  #default = "https://pve1.pycrs.cz/api2/json"
-  default = "https://10.0.0.254:8006/api2/json"
+  default = "https://pve1.pycrs.cz/api2/json"
+  #default = "https://10.0.0.254:8006/api2/json"
 }
 
 variable "proxmox_api_token_id" {
