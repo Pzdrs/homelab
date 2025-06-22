@@ -58,6 +58,8 @@ spec:
                       name: authentik 
                   - secretRef:
                       name: speedtest-tracker
+                  - secretRef:
+                      name: immich 
                 volumeMounts:
                     - name: homepage-config
                       mountPath: /app/config

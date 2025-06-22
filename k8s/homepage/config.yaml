@@ -125,6 +125,14 @@ data:
                     url: https://authentik.pycrs.cz
                     key: {{HOMEPAGE_VAR_AUTHENTIK_API_KEY}}
         - Media management:
+            - Immich:
+                icon: immich.png
+                href: https://immich.pycrs.cz
+                widget:
+                    type: immich
+                    url: https://immich.pycrs.cz
+                    key: {{HOMEPAGE_VAR_IMMICH_API_KEY}}
+                    version: 2
             - Jellyfin:
                 icon: jellyfin.png
                 href: https://jellyfin.pycrs.cz
