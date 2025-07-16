@@ -1,3 +1,9 @@
 [submodule "servarr"]
 	path = servarr
 	url = ssh://git@gitlab.pycrs.cz:2424/homelab/servarr.git
+[submodule "immich"]
+	path = immich
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/immich.git
+[submodule "dns"]
+	path = dns
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/dns.git

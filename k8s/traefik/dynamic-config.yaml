@@ -7,6 +7,13 @@ data:
   routers.yaml: |
     http:
       routers:
+        scale-syncthing:
+          rule: "Host(`scale-syncthing.pycrs.cz`)"
+          tls: {}
+          middlewares:
+            - internal-only
+            - default-headers
+          service: scale-syncthing
         s3:
           rule: "Host(`s3.pycrs.cz`)"
           tls: {}
@@ -153,6 +160,10 @@ data:
   services.yaml: |
     http:
       services:
+        scale-syncthing:
+          loadBalancer:
+            servers:
+              - url: "https://10.0.0.10:8384"
         minio:
           loadBalancer:
             servers:

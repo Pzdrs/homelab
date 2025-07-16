@@ -8,10 +8,11 @@ spec:
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
+      ttlSecondsAfterFinished: 100
       template:
         spec:
           containers:
-            - name: renovate
+            - name: homelab
               image: renovate/renovate:41.17.2
               env:
                 - name: RENOVATE_AUTODISCOVER
@@ -21,4 +22,14 @@ spec:
               envFrom:
                 - secretRef:
                     name: renovate
+#            - name: skoda-auto
+#              image: renovate/renovate:41.17.2
+#              args:
+#                - "pycrs-epa/graph-insights"
+#              env:
+#                - name: RENOVATE_PLATFORM
+#                  value: gitlab
+#              envFrom:
+#                - secretRef:
+#                    name: renovate-gitlab-com
           restartPolicy: Never

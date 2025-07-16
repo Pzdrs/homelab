@@ -1,0 +1,6 @@
+namespace: gitlab
+gitlabUrl: https://gitlab.pycrs.cz
+rbac:
+  create: true
+serviceAccount:
+  create: true
