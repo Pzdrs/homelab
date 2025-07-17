@@ -14,6 +14,10 @@ data:
             - internal-only
             - default-headers
           service: scale-syncthing
+        auth:
+          rule: "Host(`auth.pycrs.cz`)"
+          tls: {}
+          service: traefik-docker
         s3:
           rule: "Host(`s3.pycrs.cz`)"
           tls: {}
