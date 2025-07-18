@@ -187,7 +187,7 @@ data:
         jellyfin:
           loadBalancer:
             servers:
-              - url: "http://10.0.0.10:9001"
+              - url: "http://10.0.0.10:9002"
         jellyseer:
           loadBalancer:
             servers:
