@@ -20,7 +20,7 @@ spec:
             dnsPolicy: ClusterFirst
             containers:
               - name: homepage
-                image: "ghcr.io/gethomepage/homepage:latest"
+                image: "ghcr.io/gethomepage/homepage:v1.4.3"
                 imagePullPolicy: Always
                 ports:
                   - name: http
@@ -29,6 +29,13 @@ spec:
                 env:
                   - name: HOMEPAGE_ALLOWED_HOSTS
                     value: "hub.pycrs.cz"
+                resources:
+                  requests:
+                    cpu: 100m
+                    memory: 128Mi
+                  limits:
+                    cpu: 200m
+                    memory: 256Mi
                 envFrom:
                   - secretRef:
                       name: jellyfin
@@ -61,10 +68,32 @@ spec:
                   - secretRef:
                       name: immich 
                 volumeMounts:
-                    - name: homepage-config
-                      mountPath: /app/config
-                    - name: logs
-                      mountPath: /app/config/logs
+                  - mountPath: /app/config/custom.js
+                    name: homepage-config
+                    subPath: custom.js
+                  - mountPath: /app/config/custom.css
+                    name: homepage-config
+                    subPath: custom.css
+                  - mountPath: /app/config/bookmarks.yaml
+                    name: homepage-config
+                    subPath: bookmarks.yaml
+                  - mountPath: /app/config/docker.yaml
+                    name: homepage-config
+                    subPath: docker.yaml
+                  - mountPath: /app/config/kubernetes.yaml
+                    name: homepage-config
+                    subPath: kubernetes.yaml
+                  - mountPath: /app/config/services.yaml
+                    name: homepage-config
+                    subPath: services.yaml
+                  - mountPath: /app/config/settings.yaml
+                    name: homepage-config
+                    subPath: settings.yaml
+                  - mountPath: /app/config/widgets.yaml
+                    name: homepage-config
+                    subPath: widgets.yaml
+                  - mountPath: /app/config/logs
+                    name: logs
             volumes:
                 - name: homepage-config
                   configMap:

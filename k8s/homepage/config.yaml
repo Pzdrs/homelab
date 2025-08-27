@@ -119,10 +119,10 @@ data:
                 href: https://guacamole.pycrs.cz
             - Authentik:
                 icon: authentik.png
-                href: https://authentik.pycrs.cz
+                href: https://auth.pycrs.cz
                 widget:
                     type: authentik
-                    url: https://authentik.pycrs.cz
+                    url: https://auth.pycrs.cz
                     key: {{HOMEPAGE_VAR_AUTHENTIK_API_KEY}}
         - Media management:
             - Immich:
@@ -138,7 +138,7 @@ data:
                 href: https://jellyfin.pycrs.cz
                 widget:
                     type: jellyfin
-                    url: http://10.0.0.10:9001
+                    url: https://jellyfin.pycrs.cz
                     key: {{HOMEPAGE_VAR_JELLYFIN_API_KEY}}
             - Jellyseer:
                 icon: jellyseerr.png
@@ -196,6 +196,10 @@ data:
                 href: https://node-red.pycrs.cz
                 server: my-remote-docker
                 container: node-red
+            - Spotify Stats:
+                icon: spotify.png
+                description: Spotify statistics and analytics
+                href: https://your-spotify.pycrs.cz
         - Miscellaneous:
             - Portainer:
                 icon: portainer.png
