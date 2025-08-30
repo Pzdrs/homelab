@@ -13,3 +13,6 @@
 [submodule "unifi-network-server"]
 	path = unifi-network-server
 	url = ssh://git@gitlab.pycrs.cz:2424/homelab/unifi-network-server.git
+[submodule "minio"]
+	path = minio
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/minio.git
