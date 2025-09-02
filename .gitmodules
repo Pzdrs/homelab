@@ -16,3 +16,6 @@
 [submodule "minio"]
 	path = minio
 	url = ssh://git@gitlab.pycrs.cz:2424/homelab/minio.git
+[submodule "netbox"]
+	path = netbox
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/netbox.git
