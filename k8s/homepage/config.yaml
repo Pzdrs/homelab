@@ -241,6 +241,9 @@ data:
                     type: homeassistant
                     url: https://hass.pycrs.cz
                     key: {{HOMEPAGE_VAR_HOMEASSISTANT_API_TOKEN}}
+            - Knowledge base:
+                icon: https://upload.wikimedia.org/wikipedia/commons/a/a6/MediaWiki-2020-icon.svg
+                href: https://kb.pycrs.cz
     docker.yaml: |
         my-remote-docker:
             host: 10.0.0.15
