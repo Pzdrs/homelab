@@ -200,6 +200,10 @@ data:
                 icon: spotify.png
                 description: Spotify statistics and analytics
                 href: https://your-spotify.pycrs.cz
+            - Scrutiny:
+                icon: https://raw.githubusercontent.com/AnalogJ/scrutiny/master/webapp/frontend/src/assets/images/logo/scrutiny-logo-dark.png
+                description: WebUI for smartd S.M.A.R.T monitoring
+                href: https://scrutiny.pycrs.cz
         - Miscellaneous:
             - Portainer:
                 icon: portainer.png
