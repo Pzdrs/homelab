@@ -19,3 +19,6 @@
 [submodule "netbox"]
 	path = netbox
 	url = ssh://git@gitlab.pycrs.cz:2424/homelab/netbox.git
+[submodule "knowledge-base"]
+	path = knowledge-base
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/knowledge-base.git
