@@ -22,3 +22,9 @@
 [submodule "knowledge-base"]
 	path = knowledge-base
 	url = ssh://git@gitlab.pycrs.cz:2424/homelab/knowledge-base.git
+[submodule "traefik"]
+	path = traefik
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/traefik.git
+[submodule "authentik"]
+	path = authentik
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/authentik.git
