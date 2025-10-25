@@ -28,3 +28,9 @@
 [submodule "authentik"]
 	path = authentik
 	url = ssh://git@gitlab.pycrs.cz:2424/homelab/authentik.git
+[submodule "node-red"]
+	path = node-red
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/node-red.git
+[submodule "gitlab"]
+	path = gitlab
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/gitlab.git
