@@ -34,3 +34,24 @@
 [submodule "gitlab"]
 	path = gitlab
 	url = ssh://git@gitlab.pycrs.cz:2424/homelab/gitlab.git
+[submodule "argo-cd"]
+	path = argo-cd
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/argo-cd.git
+[submodule "homepage"]
+	path = homepage
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/homepage.git
+[submodule "your-spotify"]
+	path = your-spotify
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/your-spotify.git
+[submodule "speedtest-tracker"]
+	path = speedtest-tracker
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/speedtest-tracker.git
+[submodule "renovate"]
+	path = renovate
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/renovate.git
+[submodule "grafana"]
+	path = grafana
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/grafana.git
+[submodule "mailrise"]
+	path = mailrise
+	url = ssh://git@gitlab.pycrs.cz:2424/homelab/mailrise.git
